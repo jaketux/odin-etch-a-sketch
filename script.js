@@ -18,26 +18,26 @@ function newGrid(size){
 
         const paintingDivs = document.querySelectorAll(".gridbox");
 
-        paintingDivs.forEach((paintingDiv)=>{
-        paintingDiv.addEventListener("mouseover",() => {
-            const randomColour = colourSet[getRandomColour()];
-            paintingDiv.style.backgroundColor=randomColour
-    });
-    });
+        paintingDiv.addEventListener("mouseover", () => {
+            paintingDiv.style.backgroundColor = generateRandomRGBColors();})
+    
+            containerOfDivs.appendChild(paintingDiv)
 
-    containerOfDivs.appendChild(paintingDiv)
-
-}}
+    }
+    };
 
 
 
-colourSet = ['red','blue','green','orange','yellow','gray','purple','pink','indigo','violet','brown','aqua','lime']
+const generateRandomRGBColors = () => {
+	const red = Math.floor(Math.random() * 256);
+	const green = Math.floor(Math.random() * 256);
+	const blue = Math.floor(Math.random() * 256);
 
-function getRandomColour(){
-    newColor = Math.floor(Math.random()*colourSet.length)
-    return newColor
-}
+	return `rgb(${red}, ${green}, ${blue})`;
+};
 
+
+        
 clearButton.addEventListener("click",() =>{
 
     const paintingDivs = document.querySelectorAll(".gridbox");
